@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<!--
+  Personlig portefølje med støtte for både norsk og engelsk.
+  All tekst er tilgjengelig i to språkversjoner ved hjelp av klassene
+  `lang-no` og `lang-en`. JavaScript‑filen `script.js` håndterer
+  språkbytte og lagrer valget i nettleserens localStorage slik at
+  foretrukket språk beholdes mellom besøk. Siden har en mørk, moderne
+  design med en hero‑seksjon som bruker et abstrakt teknologibakgrunn.
+-->
+<html lang="no">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Min portefølje – IT‑profesjonell</title>
+  <!-- SEO & Open Graph -->
+  <meta name="description" content="Portfolio of Nikolai Holmen Dyb. IT professional focusing on frontend, backend and secure solutions.">
+  <link rel="canonical" href="https://nikkodyb.no/">
+  <meta property="og:title" content="Nikolai Holmen Dyb — Portfolio">
+  <meta property="og:description" content="IT professional focusing on frontend, backend and secure solutions.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://nikkodyb.no/">
+  <!-- Use the profile picture as a default social share image -->
+  <meta property="og:image" content="https://nikkodyb.no/profile.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Nikolai Holmen Dyb — Portfolio">
+  <meta name="twitter:description" content="IT professional focusing on frontend, backend and secure solutions.">
+  <meta name="twitter:image" content="https://nikkodyb.no/profile.jpg">
+
+  <!-- Preconnect for fonts to speed up loading -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <!-- Google Fonts for modern typography -->
+  <!-- Roboto for body text, Montserrat for headings and Roboto Mono for monospaced highlights -->
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Montserrat:wght@400;600;700&family=Roboto+Mono:wght@400;700&display=swap" rel="stylesheet">
+  <!-- Font Awesome icons for social links -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-dUIJj9OFuTIJFf0KD/7gYx1dXJmX6G6wdsI/xcSmzCD84XRFxR1ZyKdWCixj3P6N99/uo4t6WumnS/ciw+eDiw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="lang-no theme-dark theme-blue">
+  <!-- Skip link for improved accessibility -->
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header>
+    <nav class="navbar">
+      <div class="nav-left">
+        <span class="logo">&lt;IT&nbsp;Portefølje/&gt;</span>
+      </div>
+      <div class="nav-right">
+        <ul>
+          <li><a href="#about"><span class="lang-no">Om&nbsp;meg</span><span class="lang-en">About&nbsp;me</span></a></li>
+          <li><a href="#cv"><span class="lang-no">CV</span><span class="lang-en">Resume</span></a></li>
+          <li><a href="#projects"><span class="lang-no">Prosjekter</span><span class="lang-en">Projects</span></a></li>
+          <li><a href="#contact"><span class="lang-no">Kontakt</span><span class="lang-en">Contact</span></a></li>
+        </ul>
+        <!-- Language toggle button: shows name of the alternate language -->
+        <button id="lang-toggle" class="language-toggle" aria-label="Toggle language" aria-pressed="false">
+          <span class="lang-no">English</span>
+          <span class="lang-en">Norsk</span>
+        </button>
+
+        <!-- Theme toggle button: ikon skifter mellom sol (lys) og måne (mørk) -->
+        <button id="theme-toggle" class="theme-toggle" aria-label="Toggle dark/light" aria-pressed="false">
+          <i class="fas fa-sun"></i>
+          <i class="fas fa-moon"></i>
+        </button>
+        <!-- Accent color selector: små sirkler som lar deg velge mellom flere fargetema -->
+        <div class="color-select" aria-label="Velg fargetema">
+          <button class="color-btn color-blue" data-theme="blue" title="Blått tema"></button>
+          <button class="color-btn color-purple" data-theme="purple" title="Lilla tema"></button>
+          <button class="color-btn color-green" data-theme="green" title="Grønt tema"></button>
+        </div>
+      </div>
+    </nav>
+    <section class="hero">
+      <div class="hero-content">
+        <h1>
+          <span class="lang-no">Hei! Jeg er </span>
+          <span class="lang-en">Hello! I’m </span>
+          <span class="highlight">Nikolai&nbsp;Holmen&nbsp;Dyb</span>
+        </h1>
+        <p>
+          <span class="lang-no">Jeg er en IT‑profesjonell med lidenskap for teknologi, problemløsning og innovative løsninger.</span>
+          <span class="lang-en">I’m an IT professional with a passion for technology, problem solving and innovative solutions.</span>
+        </p>
+        <a href="#projects" class="cta">
+          <span class="lang-no">Se mine prosjekter</span>
+          <span class="lang-en">See my projects</span>
+        </a>
+      </div>
+    </section>
+  </header>
+
+  <main id="main">
+    <!-- About me -->
+    <section id="about" class="section about">
+      <div class="container">
+        <h2><span class="lang-no">Om&nbsp;meg</span><span class="lang-en">About&nbsp;me</span></h2>
+        <!-- Profilbilde som vises i Om meg‑seksjonen -->
+        <div class="profile-container">
+          <picture>
+            <source srcset="profile.webp" type="image/webp">
+            <img src="profile.jpg" alt="Nikolai&nbsp;Holmen&nbsp;Dyb" class="profile-photo" loading="lazy" decoding="async" width="320" height="320">
+          </picture>
+        </div>
+        <p class="lang-no">Skriv en kort beskrivelse om deg selv her. Fortell om din bakgrunn, dine ferdigheter og hva du brenner for innen IT. Dette er et flott sted å vise din personlighet og hva som gjør deg unik som utvikler, designer eller teknolog.</p>
+        <p class="lang-en">Write a short introduction about yourself here. Mention your background, skills and what drives you within IT. This is a great place to show your personality and what makes you unique as a developer, designer or technologist.</p>
+      </div>
+    </section>
+
+    <!-- CV / Resume -->
+    <section id="cv" class="section cv">
+      <div class="container">
+        <h2><span class="lang-no">Curriculum&nbsp;Vitae</span><span class="lang-en">Resume</span></h2>
+        <div class="timeline">
+          <!-- Timeline entry 1 -->
+          <div class="timeline-item">
+            <span class="date">2025&nbsp;–&nbsp;nå</span>
+            <div class="content">
+              <h3><span class="lang-no">Spesialetterforsker – Agder&nbsp;politidistrikt</span><span class="lang-en">Special Investigator – Agder&nbsp;Police&nbsp;District</span></h3>
+              <p class="lang-no">Arbeider med digitalt politiarbeid og etterforskning av digitale trusler.</p>
+              <p class="lang-en">Working with digital policing and the investigation of digital threats.</p>
+            </div>
+          </div>
+          <!-- Timeline entry 2 -->
+          <div class="timeline-item">
+            <span class="date">2019&nbsp;–&nbsp;2025</span>
+            <div class="content">
+              <h3><span class="lang-no">Systemutvikler – Sikri</span><span class="lang-en">System Developer – Sikri</span></h3>
+              <p class="lang-no">Sentral i utviklingen av brukervennlige nettapplikasjoner. Som Scrum‑leder og Security&nbsp;Champion har jeg bidratt til å forme arbeidsmetoder, implementere automatiserte tester og sikre at løsningene følger beste praksis for sikkerhet.</p>
+              <p class="lang-en">Central to developing user‑friendly web applications. As a Scrum Master and Security&nbsp;Champion I contributed to shaping workflows, implementing automated tests and ensuring solutions follow security best practices.</p>
+            </div>
+          </div>
+          <!-- Timeline entry 3 -->
+          <div class="timeline-item">
+            <span class="date">2018&nbsp;–&nbsp;2019</span>
+            <div class="content">
+              <h3><span class="lang-no">Kunderådgiver – Telenor</span><span class="lang-en">Customer Advisor – Telenor</span></h3>
+              <p class="lang-no">Ansvarlig for produktfeilretting, kundeservice og salg. Bidro til produktkvalitet og kundetilfredshet ved å løse feil effektivt og tilby løsninger som møtte kundenes behov.</p>
+              <p class="lang-en">Responsible for product troubleshooting, customer service and sales. Contributed to product quality and customer satisfaction by efficiently resolving issues and offering solutions tailored to customer needs.</p>
+            </div>
+          </div>
+          <!-- Timeline entry 4 -->
+          <div class="timeline-item">
+            <span class="date">2016&nbsp;–&nbsp;2019</span>
+            <div class="content">
+              <h3><span class="lang-no">Bachelor i IT og informasjonssystemer – Universitetet i Agder</span><span class="lang-en">BSc in IT and Information&nbsp;Systems – University of Agder</span></h3>
+              <p class="lang-no">Studerte IT og informasjonssystemer med fokus på programmering, datastrukturer, algoritmer og nettverks‑ og webutvikling.</p>
+              <p class="lang-en">Studied IT and information systems with focus on programming, data structures, algorithms and network and web development.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Projects -->
+    <section id="projects" class="section projects">
+      <div class="container">
+        <h2><span class="lang-no">Prosjekter</span><span class="lang-en">Projects</span></h2>
+        <div class="projects-grid">
+          <!-- Project card 1 -->
+          <div class="project-card">
+            <h3><span class="lang-no">Prosjekt&nbsp;1</span><span class="lang-en">Project&nbsp;1</span></h3>
+            <p class="lang-no">Kort beskrivelse av prosjektet, brukt teknologi og din rolle. Beskriv gjerne utfordringer og løsninger.</p>
+            <p class="lang-en">Brief description of the project, technologies used and your role. Describe challenges and solutions.</p>
+            <a href="#" class="project-link"><span class="lang-no">Les mer</span><span class="lang-en">Read more</span></a>
+          </div>
+          <!-- Project card 2 -->
+          <div class="project-card">
+            <h3><span class="lang-no">Prosjekt&nbsp;2</span><span class="lang-en">Project&nbsp;2</span></h3>
+            <p class="lang-no">Kort beskrivelse av prosjektet, brukt teknologi og din rolle. Beskriv gjerne utfordringer og løsninger.</p>
+            <p class="lang-en">Brief description of the project, technologies used and your role. Describe challenges and solutions.</p>
+            <a href="#" class="project-link"><span class="lang-no">Les mer</span><span class="lang-en">Read more</span></a>
+          </div>
+          <!-- Project card 3 -->
+          <div class="project-card">
+            <h3><span class="lang-no">Prosjekt&nbsp;3</span><span class="lang-en">Project&nbsp;3</span></h3>
+            <p class="lang-no">Kort beskrivelse av prosjektet, brukt teknologi og din rolle. Beskriv gjerne utfordringer og løsninger.</p>
+            <p class="lang-en">Brief description of the project, technologies used and your role. Describe challenges and solutions.</p>
+            <a href="#" class="project-link"><span class="lang-no">Les mer</span><span class="lang-en">Read more</span></a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact" class="section contact">
+      <div class="container">
+        <h2><span class="lang-no">Kontakt</span><span class="lang-en">Contact</span></h2>
+        <p class="lang-no">Hvis du er interessert i å komme i kontakt med meg, send gjerne en e‑post til <a href="mailto:nikkodyb@googlemail.com">nikkodyb@googlemail.com</a> eller bruk lenkene nedenfor.</p>
+        <p class="lang-en">If you’re interested in getting in touch with me, feel free to send an email to <a href="mailto:nikkodyb@googlemail.com">nikkodyb@googlemail.com</a> or use the links below.</p>
+        <div class="social-icons">
+          <a href="https://www.linkedin.com/in/ndyb/" aria-label="LinkedIn" rel="noopener noreferrer"><i class="fab fa-linkedin"></i></a>
+          <a href="https://github.com/nikko-dyb" aria-label="GitHub" rel="noopener noreferrer"><i class="fab fa-github"></i></a>
+          <a href="https://www.instagram.com/nikkodyb" aria-label="Instagram" rel="noopener noreferrer"><i class="fab fa-instagram"></i></a>
+          <a href="https://www.facebook.com/Nikolaidyb/" aria-label="Facebook" rel="noopener noreferrer"><i class="fab fa-facebook"></i></a>
+          <a href="https://x.com/NikkoDyb" aria-label="X/Twitter" rel="noopener noreferrer"><i class="fab fa-x-twitter"></i></a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <p class="lang-no">&copy;&nbsp;2025&nbsp;Nikolai&nbsp;Holmen&nbsp;Dyb. Alle rettigheter reservert.</p>
+      <p class="lang-en">&copy;&nbsp;2025&nbsp;Nikolai&nbsp;Holmen&nbsp;Dyb. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <!-- Custom JavaScript -->
+  <script src="script.js"></script>
+</body>
+</html>
